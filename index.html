@@ -48,7 +48,7 @@
             overflow-y: auto;
             padding: 10px 0;
             margin-bottom: 10px;
-            position: relative; /* Added for loading animation */
+            position: relative;
         }
         .message-box {
             display: flex;
@@ -72,6 +72,8 @@
             white-space: pre-wrap;
             max-width: 80%;
             word-wrap: break-word;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         .input-container {
             display: flex;
@@ -117,18 +119,20 @@
             margin-right: 10px;
         }
         .user-message .message {
-            background: #007bff;
-            color: #ffffff;
+            background: ##007bff;
+            color: #fff;
             border-radius: 20px 20px 0 20px;
             margin-left: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         .api-response .message {
-            background: #28a745;
-            color: #ffffff;
+            background: #fff;
+            color: #333;
             border-radius: 20px 20px 20px 0;
             padding: 15px;
             max-width: 80%;
             word-wrap: break-word;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         .typing-indicator {
             display: flex;
@@ -158,9 +162,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Try GPT Verson-4</h1>
-        <p>by shahariar mahfuz</p>
-        <p>আপনার ইউজার আইডি: <span id="userId"></span></p>
+        <h1>ট্রাই জিপিটি-৪</h1>
+        <p>দ্বারা শাহারিয়ার মাহফুজ</p>
+        <p>আপনার ব্যবহারকারী আইডি: <span id="userId"></span></p>
         <div id="result"></div>
         <form id="myForm" class="input-container">
             <textarea id="message" name="message" placeholder="আপনার বার্তা লিখুন..." rows="4"></textarea>
@@ -206,7 +210,7 @@
                     }, 1000); // Simulate delay for typing indicator
                 })
                 .catch(error => {
-                    console.error('ত্রুটি:', error);
+                    console.error('Error:', error);
                     // Remove typing indicator on error
                     removeTypingIndicator();
                 });
@@ -244,7 +248,6 @@
                 typingIndicator.remove();
             }
         }
-
         function scrollToBottom() {
             var resultContainer = document.getElementById('result');
             resultContainer.scrollTop = resultContainer.scrollHeight;
